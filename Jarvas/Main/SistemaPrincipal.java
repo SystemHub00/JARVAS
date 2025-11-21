@@ -11,7 +11,27 @@ import javax.swing.*;
 import java.awt.*;
 
 public class SistemaPrincipal extends JFrame {
-        private Thread automacaoThread;
+    private Thread automacaoThread;
+
+    /**
+     * Inicia uma automação em uma nova thread, garantindo que apenas uma automação rode por vez.
+     * Se já houver uma automação rodando, exibe mensagem e não inicia outra.
+     * @param automacao Runnable com o código da automação
+     */
+    private void iniciarAutomacao(Runnable automacao) {
+        if (automacaoThread != null && automacaoThread.isAlive()) {
+            System.out.println("Já existe uma automação em execução. Pare antes de iniciar outra.");
+            return;
+        }
+        automacaoThread = new Thread(() -> {
+            try {
+                automacao.run();
+            } catch (Exception e) {
+                System.out.println("Erro na automação: " + e.getMessage());
+            }
+        });
+        automacaoThread.start();
+    }
     
     public SistemaPrincipal() {
         // ...existing code...
@@ -117,7 +137,7 @@ public class SistemaPrincipal extends JFrame {
         terminalArea.setEditable(false);
         terminalArea.setFont(new Font("Consolas", Font.PLAIN, 14));
         terminalArea.setBackground(new Color(18, 18, 30));
-        terminalArea.setForeground(new Color(255, 255, 255));
+        terminalArea.setForeground(new Color(0, 255, 0));
         JScrollPane terminalScroll = new JScrollPane(terminalArea);
         terminalScroll.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(255,0,80)), "Terminal", 0, 0, new Font("Arial", Font.BOLD, 14), new Color(255,0,80)));
         panel.add(terminalScroll, gbc);
@@ -203,20 +223,5 @@ public class SistemaPrincipal extends JFrame {
                 new SistemaPrincipal();
             }
         });
-    }
-    // Inicia automação em thread controlada
-    private void iniciarAutomacao(Runnable automacao) {
-        if (automacaoThread != null && automacaoThread.isAlive()) {
-            System.out.println("Já existe uma automação rodando. Pare antes de iniciar outra.");
-            return;
-        }
-        automacaoThread = new Thread(() -> {
-            try {
-                automacao.run();
-            } catch (Exception ex) {
-                System.out.println("Erro na automação: " + ex.getMessage());
-            }
-        });
-        automacaoThread.start();
     }
 }

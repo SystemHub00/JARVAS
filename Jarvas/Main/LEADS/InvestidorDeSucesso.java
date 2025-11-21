@@ -18,8 +18,8 @@ public class InvestidorDeSucesso {
             e.printStackTrace();
         }
     }
-    // F10
     // CHROME
+    // F10
     public static void executarInvestidorDeSucesso() {
         try {
             timeSleep(5000);
@@ -27,7 +27,7 @@ public class InvestidorDeSucesso {
             for (int i = 0; i < 32; i++) {
                 //=========================== BOTÃO ADICIONAR ==================================//
                 hotkey(new int[]{KeyEvent.VK_ALT, KeyEvent.VK_O, KeyEvent.VK_I});
-                timeSleep(1000);
+                timeSleep(2000);
                 
                 //============================= ABRIR EXCEL ====================================//
                 hotkey(new int[]{KeyEvent.VK_ALT, KeyEvent.VK_TAB}); // Chrome
@@ -36,17 +36,17 @@ public class InvestidorDeSucesso {
                 //============================== COPIA CPF =====================================//
                 for (int j = 0; j < 2; j++) {
                     hotkey(new int[]{KeyEvent.VK_CONTROL, KeyEvent.VK_C}); // copia o "CPF"
-                    timeSleep(1000);
+                    timeSleep(2000);
                 }
-                timeSleep(1000);
+                timeSleep(2000);
                 hotkey(new int[]{KeyEvent.VK_ALT, KeyEvent.VK_TAB}); // F10
-                timeSleep(1000);
+                timeSleep(2000);
                 pressKey(KeyEvent.VK_TAB);
-                timeSleep(1000);
+                timeSleep(2000);
                 hotkey(new int[]{KeyEvent.VK_CONTROL, KeyEvent.VK_V}); // colar o "CPF" copiado
-                timeSleep(1000);
+                timeSleep(2000);
                 pressKey(KeyEvent.VK_ENTER);
-                timeSleep(1000);
+                timeSleep(2000);
                 
                 //============================ BOTÃO PROXIMO - 1 ====================================//
                 for (int j = 0; j < 17; j++) {
@@ -59,18 +59,18 @@ public class InvestidorDeSucesso {
                 tipoDeContrato();
                 timeSleep(4000);
                 pressKey(KeyEvent.VK_TAB);
-                timeSleep(100);
+                timeSleep(2000);
                 
                 //============ OPÇÃO - DATA DA MATRÍCULA ==============//
                 //================================ ESCOLHER MATRÍCULA ======================================//
                 matricula();
-                timeSleep(100);
+                timeSleep(2000);
                 pressKey(KeyEvent.VK_TAB);
                 pressKey(KeyEvent.VK_TAB);
                 
                 //================ OPÇÃO - EVENTO =====================//
                 evento();
-                timeSleep(100);
+                timeSleep(2000);
                 pressKey(KeyEvent.VK_TAB);
                 
                 //================= OPÇÃO - CURSO =====================//
@@ -78,48 +78,49 @@ public class InvestidorDeSucesso {
                 for (int j = 0; j < 50; j++) {
                     pressKey(KeyEvent.VK_DOWN);
                 }
-                timeSleep(300);
+                timeSleep(2000);
                 pressKey(KeyEvent.VK_TAB);
-                timeSleep(300);
+                timeSleep(2000);
                 
                 //=============== OPÇÃO - ADMINISTRADO =================//
                 adm();
-                timeSleep(300);
+                timeSleep(2000);
                 pressKey(KeyEvent.VK_TAB);
                 
                 //=============== OPÇÃO - COORDENADOR =================//
                 coordenador();
-                timeSleep(300);
+                timeSleep(2000);
                 
                 //============================ BOTÃO PROXIMO - 2 ====================================//
                 botaoProximo2();
-                timeSleep(1000);
+                timeSleep(2000);
                 
                 //================================ PARTE - 3 ========================================//
                 pressKey(KeyEvent.VK_SPACE);
                 polo();
-                timeSleep(300);
+                timeSleep(2000);
                 
                 //============================ BOTÃO GRAVAR ====================================// 
                 botaoGravar();
+                timeSleep(1000);
                 
                 //============================================== EXCEL ====================================================//
                 hotkey(new int[]{KeyEvent.VK_ALT, KeyEvent.VK_TAB}); // Chrome
-                timeSleep(1000);
+                timeSleep(2000);
                 
                 for (int j = 0; j < 1; j++) {
                     pressKey(KeyEvent.VK_LEFT);
                 }
                 pressKey(KeyEvent.VK_SPACE);
-                timeSleep(1000);
+                timeSleep(2000);
                 pressKey(KeyEvent.VK_DOWN);
                 
                 for (int j = 0; j < 1; j++) {
                     pressKey(KeyEvent.VK_RIGHT); // Voltar para o proximo CPF
                 }
-                timeSleep(1000);
+                timeSleep(2000);
                 hotkey(new int[]{KeyEvent.VK_ALT, KeyEvent.VK_TAB}); // F10
-                timeSleep(1000);
+                timeSleep(2000);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -159,7 +160,7 @@ public class InvestidorDeSucesso {
     }
     
     private static void matricula() {
-        String dataDoUsuario = "12/11/2025";
+        String dataDoUsuario = "21/11/2025";
         for (int i = 0; i < 10; i++) {
             pressKey(KeyEvent.VK_BACK_SPACE);
         }
