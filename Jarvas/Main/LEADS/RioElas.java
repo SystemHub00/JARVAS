@@ -11,15 +11,16 @@ public class RioElas {
     
     private static Robot robot;
     
-    public static final String TRANCISTA = "Rio+Elas: Presencial - Trancista";
+    public static final String DESIGNER_DE_UNHAS = "Rio+Elas: Presencial - Designer de Unhas";
+    public static final String EXTENSAO_DE_CILIOS = "Rio+Elas: Presencial - Extensão de Cílios";
     public static final String PEDICURE = "Rio+Elas: Presencial - Pedicure";
-    public static final String RIO_ELAS_PRESENCIAL_DESIGNER = "Rio+Elas: Presencial - Designer";
+    public static final String TRANCISTA = "Rio+Elas: Presencial - Trancista";
 
     static {
         try {
             robot = new Robot();
-        } catch (AWTException e) {
-            e.printStackTrace();
+        } catch (AWTException e) {                      
+            e.printStackTrace();                    
         }
     }
     // CHROME
@@ -31,100 +32,97 @@ public class RioElas {
             for (int i = 0; i < 32; i++) {
                 //=========================== BOTÃO ADICIONAR ==================================//
                 hotkey(new int[]{KeyEvent.VK_ALT, KeyEvent.VK_O, KeyEvent.VK_I});
-                timeSleep(2000);
+                timeSleep(1500);
                 
                 //============================= ABRIR EXCEL ====================================//
                 hotkey(new int[]{KeyEvent.VK_ALT, KeyEvent.VK_TAB}); // Chrome
-                timeSleep(1000);
+                timeSleep(1500);
                 
                 //============================== COPIA CPF =====================================//
                 for (int j = 0; j < 2; j++) {
                     hotkey(new int[]{KeyEvent.VK_CONTROL, KeyEvent.VK_C}); // copia o "CPF"
-                    timeSleep(2000);
+                    timeSleep(1500);
                 }
-                timeSleep(2000);
+                timeSleep(1500);
                 hotkey(new int[]{KeyEvent.VK_ALT, KeyEvent.VK_TAB}); // F10
-                timeSleep(2000);
+                timeSleep(1500);
                 pressKey(KeyEvent.VK_TAB);
-                timeSleep(2000);
+                timeSleep(1500);
                 hotkey(new int[]{KeyEvent.VK_CONTROL, KeyEvent.VK_V}); // colar o "CPF" copiado
-                timeSleep(2000);
+                timeSleep(1500);
                 pressKey(KeyEvent.VK_ENTER);
-                timeSleep(2000);
+                timeSleep(1500);
                 
                 //============================ BOTÃO PROXIMO - 1 ====================================//
                 for (int j = 0; j < 17; j++) {
                     pressKey(KeyEvent.VK_TAB);
                 }
-                timeSleep(2000);
+                timeSleep(1500);
                 
                 //================================ PARTE - 2 ========================================//
                 //================ TIPO DE CONTRATO ===================//
                 tipoDeContrato();
-                timeSleep(4000);
+                timeSleep(1500);
                 pressKey(KeyEvent.VK_TAB);
-                timeSleep(2000);
+                timeSleep(1500);
                 
                 //============ OPÇÃO - DATA DA MATRÍCULA ==============//
                 //================================ ESCOLHER MATRÍCULA ======================================//
                 matricula();
-                timeSleep(2000);
+                timeSleep(1500);
                 pressKey(KeyEvent.VK_TAB);
                 pressKey(KeyEvent.VK_TAB);
                 
                 //================ OPÇÃO - EVENTO =====================//
                 evento();
-                timeSleep(2000);
+                timeSleep(1500);
                 pressKey(KeyEvent.VK_TAB);
                 
                 //================= OPÇÃO - CURSO =====================//
-                //======== COPIA CURSO =========//
-                for (int j = 0; j < 50; j++) {
-                    pressKey(KeyEvent.VK_DOWN);
-                }
-                timeSleep(2000);
+                curso();
+                timeSleep(1500);
                 pressKey(KeyEvent.VK_TAB);
-                timeSleep(2000);
+                timeSleep(1500);
                 
                 //=============== OPÇÃO - ADMINISTRADO =================//
                 adm();
-                timeSleep(2000);
+                timeSleep(1500);
                 pressKey(KeyEvent.VK_TAB);
                 
                 //=============== OPÇÃO - COORDENADOR =================//
                 coordenador();
-                timeSleep(2000);
+                timeSleep(1500);
                 
                 //============================ BOTÃO PROXIMO - 2 ====================================//
                 botaoProximo2();
-                timeSleep(2000);
+                timeSleep(1500);
                 
                 //================================ PARTE - 3 ========================================//
                 pressKey(KeyEvent.VK_SPACE);
                 polo();
-                timeSleep(2000);
+                timeSleep(1500);
                 
                 //============================ BOTÃO GRAVAR ====================================// 
                 botaoGravar();
-                timeSleep(1000);
+                timeSleep(1500);
                 
                 //============================================== EXCEL ====================================================//
                 hotkey(new int[]{KeyEvent.VK_ALT, KeyEvent.VK_TAB}); // Chrome
-                timeSleep(2000);
+                timeSleep(1500);
                 
                 for (int j = 0; j < 1; j++) {
                     pressKey(KeyEvent.VK_LEFT);
                 }
                 pressKey(KeyEvent.VK_SPACE);
-                timeSleep(2000);
+                timeSleep(1500);
                 pressKey(KeyEvent.VK_DOWN);
                 
                 for (int j = 0; j < 1; j++) {
                     pressKey(KeyEvent.VK_RIGHT); // Voltar para o proximo CPF
                 }
-                timeSleep(2000);
+                timeSleep(1500);
                 hotkey(new int[]{KeyEvent.VK_ALT, KeyEvent.VK_TAB}); // F10
-                timeSleep(2000);
+                timeSleep(1500);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -164,15 +162,16 @@ public class RioElas {
     }
     
     private static void matricula() {
-        String dataDoUsuario = "21/11/2025";
+        String dataDoUsuario = "24/11/2025";
         for (int i = 0; i < 10; i++) {
+                    
             pressKey(KeyEvent.VK_BACK_SPACE);
         }
         writeText(dataDoUsuario);
     }
     
     private static void evento() {
-        String evento = "5 - Investidor de Sucesso";
+        String evento = "7 - Rio+Elas";
         writeText(evento);
     }
     
@@ -181,12 +180,17 @@ public class RioElas {
         writeText(adm);
     }
     
+    private static void curso() {
+        String curso = TRANCISTA;
+        writeText(curso);
+    }
+
     private static void coordenador() {
-        String coordenador = "Marcus Vinicius Coppola Souto";
+        String coordenador = "Stefany";
         writeText(coordenador);
     }
     
-    private static void botaoProximo2() {
+    private static void botaoProximo2() {                   
         for (int i = 0; i < 5; i++) {
             pressKey(KeyEvent.VK_TAB);
         }
@@ -196,7 +200,7 @@ public class RioElas {
         for (int i = 0; i < 2; i++) {
             pressKey(KeyEvent.VK_TAB);
         }
-        String polo = "RJ - Investidor de Sucesso";
+        String polo = "RJ - Rio+Elas";
         writeText(polo);
     }
     
