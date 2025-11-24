@@ -7,10 +7,14 @@ import java.awt.datatransfer.StringSelection;
 // import java.awt.datatransfer.DataFlavor; // Removido pois não é utilizado
 import java.awt.Toolkit;
 
-public class InvestidorDeSucesso {
+public class RioElas {
     
     private static Robot robot;
     
+    public static final String TRANCISTA = "Rio+Elas: Presencial - Trancista";
+    public static final String PEDICURE = "Rio+Elas: Presencial - Pedicure";
+    public static final String RIO_ELAS_PRESENCIAL_DESIGNER = "Rio+Elas: Presencial - Designer";
+
     static {
         try {
             robot = new Robot();
@@ -20,7 +24,7 @@ public class InvestidorDeSucesso {
     }
     // CHROME
     // F10
-    public static void executarInvestidorDeSucesso() {
+    public static void executaRioElas() {
         try {
             timeSleep(5000);
 
@@ -160,7 +164,7 @@ public class InvestidorDeSucesso {
     }
     
     private static void matricula() {
-        String dataDoUsuario = "24/11/2025";
+        String dataDoUsuario = "21/11/2025";
         for (int i = 0; i < 10; i++) {
             pressKey(KeyEvent.VK_BACK_SPACE);
         }
@@ -215,6 +219,6 @@ public class InvestidorDeSucesso {
     
     // Executar apenas se chamado diretamente
     public static void main(String[] args) {
-        executarInvestidorDeSucesso();
+        executaRioElas();
     }
- }
+}
