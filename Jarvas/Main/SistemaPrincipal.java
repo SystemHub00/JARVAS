@@ -62,54 +62,68 @@ public class SistemaPrincipal extends JFrame {
         gbc.gridwidth = 1;
         panel.add(label, gbc);
 
-        // Botão seta para expandir/recolher
-        gbc.gridy++;
-        JButton btnExpandir = new JButton("▼ Automação");
-        btnExpandir.setFont(new Font("Orbitron", Font.BOLD, 18));
-        btnExpandir.setBackground(new Color(30, 30, 60));
-        btnExpandir.setForeground(new Color(255, 255, 255));
-        btnExpandir.setFocusPainted(false);
-        btnExpandir.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createBevelBorder(1, new Color(255,0,80), new Color(80,0,255)),
-            BorderFactory.createEmptyBorder(10, 32, 10, 32)));
-        btnExpandir.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        panel.add(btnExpandir, gbc);
 
-        // Painel de botões de automação (inicialmente oculto)
+        // Painel de botões de automação
         gbc.gridy++;
         JPanel botoesPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 8, 8));
         botoesPanel.setBackground(new Color(28, 28, 48));
 
 
 
-        JButton btnInvestidorPeq = criarBotaoPequeno("Investidor");
+        JButton btnInvestidorPeq = criarBotaoPequeno("INVESTIDOR");
         btnInvestidorPeq.addActionListener(e -> iniciarAutomacao(() -> InvestidorDeSucesso.executarInvestidorDeSucesso()));
         botoesPanel.add(btnInvestidorPeq);
 
-        JButton btnCadastrarAppPeq = criarBotaoPequeno("Cadastrar APP");
+        JButton btnCadastrarAppPeq = criarBotaoPequeno("CADASTRAR APP");
         btnCadastrarAppPeq.addActionListener(e -> iniciarAutomacao(() -> CadastrarAPP.executarCadastrarAPP()));
         botoesPanel.add(btnCadastrarAppPeq);
 
-        JButton btnIncluirTurmaPeq = criarBotaoPequeno("Incluir Turma");
+        JButton btnIncluirTurmaPeq = criarBotaoPequeno("INCLUIR TURMA");
         btnIncluirTurmaPeq.addActionListener(e -> iniciarAutomacao(() -> IncluirEmTurma.executarIncluirTurma()));
         botoesPanel.add(btnIncluirTurmaPeq);
 
-        JButton btnAlterarContratoPeq = criarBotaoPequeno("Alterar Contrato");
+        JButton btnAlterarContratoPeq = criarBotaoPequeno("ALTERAR CONTRATO");
         btnAlterarContratoPeq.addActionListener(e -> iniciarAutomacao(() -> AlterarNumeroDoContrato.executarMudarContrato()));
         botoesPanel.add(btnAlterarContratoPeq);
 
-        JButton btnAlterarNomeCursoPeq = criarBotaoPequeno("Alterar Curso");
+        JButton btnAlterarNomeCursoPeq = criarBotaoPequeno("ALTERAR CURSO");
         btnAlterarNomeCursoPeq.addActionListener(e -> iniciarAutomacao(() -> AlterarNomeDoCurso.executarBotCurso()));
         botoesPanel.add(btnAlterarNomeCursoPeq);
 
-        JButton btnAcharCoordenadasPeq = criarBotaoPequeno("Coordenadas");
+        JButton btnAcharCoordenadasPeq = criarBotaoPequeno("COORDENADAS");
         btnAcharCoordenadasPeq.addActionListener(e -> iniciarAutomacao(() -> AcharCoordenadas.main(new String[]{})));
         botoesPanel.add(btnAcharCoordenadasPeq);
 
-        // Botão Stop
-        JButton btnStop = criarBotaoPequeno("Stop");
-        btnStop.setBackground(new Color(255, 0, 80));
+        // Botão para rodar script Python
+        JButton btnAlterarData = criarBotaoPequeno("ALTERAR DATA");
+        btnAlterarData.addActionListener(e -> iniciarAutomacao(() -> executarPythonAlterarData()));
+        botoesPanel.add(btnAlterarData);
+
+
+        // Painel separado para o botão STOP
+        JPanel stopPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 8, 8));
+        stopPanel.setBackground(new Color(28, 28, 48));
+        JButton btnStop = new JButton("STOP");
+        btnStop.setFont(new Font("Arial", Font.BOLD, 13));
+        btnStop.setBackground(new Color(200, 0, 0));
         btnStop.setForeground(Color.WHITE);
+        btnStop.setFocusPainted(false);
+        btnStop.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(new Color(200,0,0), 2),
+            BorderFactory.createEmptyBorder(6, 32, 6, 32)));
+        btnStop.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        btnStop.setContentAreaFilled(true);
+        btnStop.setOpaque(true);
+        btnStop.setRolloverEnabled(true);
+        btnStop.addChangeListener(e -> {
+            if (btnStop.getModel().isRollover()) {
+                btnStop.setBackground(new Color(255, 0, 0));
+                btnStop.setForeground(Color.BLACK);
+            } else {
+                btnStop.setBackground(new Color(200, 0, 0));
+                btnStop.setForeground(Color.WHITE);
+            }
+        });
         btnStop.addActionListener(e -> {
             if (automacaoThread != null && automacaoThread.isAlive()) {
                 automacaoThread.interrupt();
@@ -118,18 +132,14 @@ public class SistemaPrincipal extends JFrame {
                 System.out.println("Nenhuma automação em execução.");
             }
         });
-        botoesPanel.add(btnStop);
+        stopPanel.add(btnStop);
 
-        botoesPanel.setVisible(false);
+        // Exibe sempre os botões
+        gbc.gridwidth = 1;
         panel.add(botoesPanel, gbc);
+        gbc.gridy++;
+        panel.add(stopPanel, gbc);
 
-        // Botão seta mostra/oculta painel de botões
-        btnExpandir.addActionListener(e -> {
-            boolean mostrar = !botoesPanel.isVisible();
-            botoesPanel.setVisible(mostrar);
-            btnExpandir.setText(mostrar ? "▲ Automação" : "▼ Automação");
-            panel.revalidate();
-        });
 
         // Painel de terminal (área de saída)
         gbc.gridy++;
@@ -161,6 +171,25 @@ public class SistemaPrincipal extends JFrame {
         add(panel, mainGbc);
 
         setVisible(true);
+    }
+
+    // Executa o script Python AlterarDataDaMatricula.py
+    private void executarPythonAlterarData() {
+        try {
+            String pythonScript = "C:/Users/lucas/OneDrive/Documentos/JARVAS/Jarvas/Main/TAREFAS/AlterarDataDaMatricula.py";
+            ProcessBuilder pb = new ProcessBuilder("python", pythonScript);
+            pb.redirectErrorStream(true);
+            Process process = pb.start();
+            java.io.BufferedReader reader = new java.io.BufferedReader(new java.io.InputStreamReader(process.getInputStream()));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+            int exitCode = process.waitFor();
+            System.out.println("[PYTHON] Script finalizado. Código de saída: " + exitCode);
+        } catch (Exception ex) {
+            System.out.println("Erro ao executar script Python: " + ex.getMessage());
+        }
     }
 
 

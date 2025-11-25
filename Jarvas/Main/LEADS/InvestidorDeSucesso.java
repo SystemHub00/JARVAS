@@ -160,7 +160,7 @@ public class InvestidorDeSucesso {
     }
     
     private static void matricula() {
-        String dataDoUsuario = "24/11/2025";
+        String dataDoUsuario = "25/11/2025";
         for (int i = 0; i < 10; i++) {
             pressKey(KeyEvent.VK_BACK_SPACE);
         }

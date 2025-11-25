@@ -6,13 +6,14 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 // import java.awt.datatransfer.DataFlavor; // Removido pois não é utilizado
 import java.awt.Toolkit;
+import java.security.spec.ECField;  
 
 public class RioElas {
     
     private static Robot robot;
     
     public static final String DESIGNER_DE_UNHAS = "Rio+Elas: Presencial - Designer de Unhas";
-    public static final String EXTENSAO_DE_CILIOS = "Rio+Elas: Presencial - Extensão de Cílios";
+    public static final String EXTENSAO_DE_CILIOS = "Rio+Elas: Presencial - Extensao de Cilios";
     public static final String PEDICURE = "Rio+Elas: Presencial - Pedicure";
     public static final String TRANCISTA = "Rio+Elas: Presencial - Trancista";
 
@@ -60,10 +61,10 @@ public class RioElas {
                 timeSleep(1500);
                 
                 //================================ PARTE - 2 ========================================//
-                //================ TIPO DE CONTRATO ===================//
+                //================ TIPO DE CONTRATO ===================//  
                 tipoDeContrato();
                 timeSleep(1500);
-                pressKey(KeyEvent.VK_TAB);
+                pressKey(KeyEvent.VK_TAB) ;
                 timeSleep(1500);
                 
                 //============ OPÇÃO - DATA DA MATRÍCULA ==============//
@@ -128,7 +129,7 @@ public class RioElas {
             e.printStackTrace();
         }
     }
-    
+     
     // Métodos auxiliares para simular as funções do Python
     private static void timeSleep(int milliseconds) {
         try {
@@ -155,12 +156,12 @@ public class RioElas {
             robot.keyRelease(key);
         }
     }
-    
+                                                 
     private static void tipoDeContrato() {
         String tipoDeContrato = "Bolsa";
         writeText(tipoDeContrato);
     }
-    
+                            
     private static void matricula() {
         String dataDoUsuario = "24/11/2025";
         for (int i = 0; i < 10; i++) {
@@ -181,8 +182,14 @@ public class RioElas {
     }
     
     private static void curso() {
-        String curso = TRANCISTA;
-        writeText(curso);
+        String curso = EXTENSAO_DE_CILIOS;
+        if (curso.equals("Rio+Elas: Presencial - Extensao de Cilios")) {
+            for (int i = 0; i < 52; i++ ) {
+                pressKey(KeyEvent.VK_DOWN);
+            }
+        } else {
+            writeText(curso);
+        }
     }
 
     private static void coordenador() {
