@@ -8,14 +8,14 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.Toolkit;
 import java.security.spec.ECField;  
 
-public class RioElas {
+public class CulturaCarnaval {
     
     private static Robot robot;
     
-    public static final String DESIGNER_DE_UNHAS = "Rio+Elas: Presencial - Designer de Unhas";
-    public static final String EXTENSAO_DE_CILIOS = "Rio+Elas: Presencial - Extensao de Cilios";
-    public static final String PEDICURE = "Rio+Elas: Presencial - Pedicure";
-    public static final String TRANCISTA = "Rio+Elas: Presencial - Trancista";
+    public static final String ADERICISMO = "Cultura Carnaval: Híbrido - Adericismo";
+    public static final String COSTURA = "Cultura Carnaval: Híbrido - Costura";
+    public static final String PASSISTA = "Cultura Carnaval: Híbrido - Passista";
+    public static final String PERCUSSAO = "Cultura Carnaval: Híbrido - Percussão";
 
     static {
         try {
@@ -26,10 +26,10 @@ public class RioElas {
     }
     // CHROME
     // F10
-    public static void executaRioElas() {
+    public static void executaCulturaCarnaval() {
         try {
             timeSleep(5000);
-
+            
             for (int i = 0; i < 61; i++) {
                 //=========================== BOTÃO ADICIONAR ==================================//
                 hotkey(new int[]{KeyEvent.VK_ALT, KeyEvent.VK_O, KeyEvent.VK_I});
@@ -128,8 +128,8 @@ public class RioElas {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-     
+    }                           
+    
     // Métodos auxiliares para simular as funções do Python
     private static void timeSleep(int milliseconds) {
         try {
@@ -163,55 +163,66 @@ public class RioElas {
     }
                             
     private static void matricula() {
-        String dataDoUsuario = "25/11/2025";
+        String dataDoUsuario = "24/11/2025";
         for (int i = 0; i < 10; i++) {
                     
             pressKey(KeyEvent.VK_BACK_SPACE);
         }
         writeText(dataDoUsuario);
-    }
+    }           
     
     private static void evento() {
-        String evento = "7 - Rio+Elas";
-        writeText(evento);
+        String acao = "8 - Cultura Carnaval";
+        writeText(acao);
     }
     
-    private static void adm() {                 
+    private static void curso() {       
+        String curso = PASSISTA;
+        if (curso.equals("Cultura Carnaval: Híbrido - Adericismo")) {
+            for (int i = 0; i < 19; i++) {
+                pressKey(KeyEvent.VK_DOWN);
+            }
+        } else if (curso.equals("Cultura Carnaval: Híbrido - Costura")) {
+            for (int i = 0; i < 20; i++) {
+                pressKey(KeyEvent.VK_DOWN);                                                                 
+            }
+        } else if (curso.equals("Cultura Carnaval: Híbrido - Passista")) {
+            for (int i = 0; i < 21; i++) {
+                pressKey(KeyEvent.VK_DOWN);
+            }
+        } else if (curso.equals("Cultura Carnaval: Híbrido - Percussão")) {
+            for (int i = 0; i < 22; i++) {
+                pressKey(KeyEvent.VK_DOWN);
+            }   
+        } 
+    }
+
+    private static void adm() {                  
         String adm = "Lucas Luan Pereira Vieira";
         writeText(adm);
     }
-    
-    private static void curso() {   
-        String curso = TRANCISTA;
-        if (curso.equals("Rio+Elas: Presencial - Extensao de Cilios")) {
-            for (int i = 0; i < 52; i++ ) {
-                pressKey(KeyEvent.VK_DOWN); 
-                }
-        } else {
-            writeText(curso);
-        }
-    }
 
     private static void coordenador() {
-        String coordenador = "Stefany";
+        String coordenador = "Marcus Vinicius Coppola Souto";
         writeText(coordenador);
     }
     
-    private static void botaoProximo2() {                   
+    private static void botaoProximo2() {                    
         for (int i = 0; i < 5; i++) {
             pressKey(KeyEvent.VK_TAB);
         }
     }
     
     private static void polo() {
-        for (int i = 0; i < 2; i++) {
-            pressKey(KeyEvent.VK_TAB);
+        for (int         i = 0; i < 2; i++) {
+            pressKey(KeyEvent.VK_TAB);                                                                                          
         }
-        String polo = "RJ - Rio+Elas";
-        writeText(polo);
+        for (int v =0; v < 3; v++) {
+            pressKey(KeyEvent.VK_DOWN);
+        }                               
     }
-    
-    private static void botaoGravar() {
+
+    private static void botaoGravar() {                                         
         for (int i = 0; i < 6; i++) {
             pressKey(KeyEvent.VK_TAB);
         }
@@ -230,6 +241,6 @@ public class RioElas {
     
     // Executar apenas se chamado diretamente
     public static void main(String[] args) {
-        executaRioElas();
+        executaCulturaCarnaval();
     }
-}
+}                                           
