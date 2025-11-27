@@ -6,7 +6,6 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 // import java.awt.datatransfer.DataFlavor; // Removido pois não é utilizado
 import java.awt.Toolkit;
-import java.security.spec.ECField;  
 
 public class HelpDosmestica {
     
@@ -20,8 +19,7 @@ public class HelpDosmestica {
     static {
         try {
             robot = new Robot();
-        } catch (AWTException e) {                      
-            e.printStackTrace();                    
+        } catch (AWTException e) {                                          
         }
     }
     // CHROME
@@ -126,7 +124,6 @@ public class HelpDosmestica {
                 timeSleep(1200);
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
     }                           
     
@@ -135,7 +132,6 @@ public class HelpDosmestica {
         try {
             Thread.sleep(milliseconds);
         } catch (InterruptedException e) {
-            e.printStackTrace();
         }
     }
     

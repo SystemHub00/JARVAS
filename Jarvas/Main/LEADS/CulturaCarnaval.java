@@ -6,7 +6,7 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 // import java.awt.datatransfer.DataFlavor; // Removido pois não é utilizado
 import java.awt.Toolkit;
-import java.security.spec.ECField;  
+  
 
 public class CulturaCarnaval {
     
@@ -20,8 +20,7 @@ public class CulturaCarnaval {
     static {
         try {
             robot = new Robot();
-        } catch (AWTException e) {                      
-            e.printStackTrace();                    
+        } catch (AWTException e) {                                         
         }
     }
     // CHROME
@@ -33,100 +32,99 @@ public class CulturaCarnaval {
             for (int i = 0; i < 61; i++) {
                 //=========================== BOTÃO ADICIONAR ==================================//
                 hotkey(new int[]{KeyEvent.VK_ALT, KeyEvent.VK_O, KeyEvent.VK_I});
-                timeSleep(1200);
+                timeSleep(1000);
                 
                 //============================= ABRIR EXCEL ====================================//
                 hotkey(new int[]{KeyEvent.VK_ALT, KeyEvent.VK_TAB}); // Chrome
-                timeSleep(1200);
+                timeSleep(1000);
                 
                 //============================== COPIA CPF =====================================//
                 for (int j = 0; j < 2; j++) {
                     hotkey(new int[]{KeyEvent.VK_CONTROL, KeyEvent.VK_C}); // copia o "CPF"
-                    timeSleep(1200);
+                    timeSleep(1000);
                 }
-                timeSleep(1200);
+                timeSleep(1000);
                 hotkey(new int[]{KeyEvent.VK_ALT, KeyEvent.VK_TAB}); // F10
-                timeSleep(1200);
+                timeSleep(1000);
                 pressKey(KeyEvent.VK_TAB);
-                timeSleep(1200);
+                timeSleep(1000);
                 hotkey(new int[]{KeyEvent.VK_CONTROL, KeyEvent.VK_V}); // colar o "CPF" copiado
-                timeSleep(1200);
+                timeSleep(1000);
                 pressKey(KeyEvent.VK_ENTER);
-                timeSleep(1200);
+                timeSleep(1000);
                 
                 //============================ BOTÃO PROXIMO - 1 ====================================//
                 for (int j = 0; j < 17; j++) {
                     pressKey(KeyEvent.VK_TAB);
                 }
-                timeSleep(1500);
+                timeSleep(2000);
                 
                 //================================ PARTE - 2 ========================================//
                 //================ TIPO DE CONTRATO ===================//  
                 tipoDeContrato();
-                timeSleep(1200);
+                timeSleep(1000);
                 pressKey(KeyEvent.VK_TAB) ;
-                timeSleep(1200);
+                timeSleep(1000);
                 
                 //============ OPÇÃO - DATA DA MATRÍCULA ==============//
                 //================================ ESCOLHER MATRÍCULA ======================================//
                 matricula();
-                timeSleep(1200);
+                timeSleep(1000);
                 pressKey(KeyEvent.VK_TAB);
                 pressKey(KeyEvent.VK_TAB);                   
                 
                 //================ OPÇÃO - EVENTO =====================//
                 evento();
-                timeSleep(1200);
+                timeSleep(1000);
                 pressKey(KeyEvent.VK_TAB);
                 
                 //================= OPÇÃO - CURSO =====================//
                 curso();
-                timeSleep(1200);
+                timeSleep(1000);
                 pressKey(KeyEvent.VK_TAB);
-                timeSleep(1200);
+                timeSleep(1000);
                 
                 //=============== OPÇÃO - ADMINISTRADO =================//
                 adm();
-                timeSleep(1200);
+                timeSleep(1000);
                 pressKey(KeyEvent.VK_TAB);
                 
                 //=============== OPÇÃO - COORDENADOR =================//
                 coordenador();
-                timeSleep(1200);
+                timeSleep(1000);
                 
                 //============================ BOTÃO PROXIMO - 2 ====================================//
                 botaoProximo2();
-                timeSleep(1200);
+                timeSleep(1000);
                 
                 //================================ PARTE - 3 ========================================//
                 pressKey(KeyEvent.VK_SPACE);
                 polo();
-                timeSleep(1200);
+                timeSleep(1000);
                 
                 //============================ BOTÃO GRAVAR ====================================// 
                 botaoGravar();
-                timeSleep(1200);
+                timeSleep(1000);
                 
                 //============================================== EXCEL ====================================================//
                 hotkey(new int[]{KeyEvent.VK_ALT, KeyEvent.VK_TAB}); // Chrome
-                timeSleep(1200);
+                timeSleep(1000);
                 
                 for (int j = 0; j < 1; j++) {
                     pressKey(KeyEvent.VK_LEFT);
                 }
                 pressKey(KeyEvent.VK_SPACE);
-                timeSleep(1200);
+                timeSleep(1000);
                 pressKey(KeyEvent.VK_DOWN);
                 
                 for (int j = 0; j < 1; j++) {
                     pressKey(KeyEvent.VK_RIGHT); // Voltar para o proximo CPF
                 }
-                timeSleep(1200);
+                timeSleep(1000);
                 hotkey(new int[]{KeyEvent.VK_ALT, KeyEvent.VK_TAB}); // F10
-                timeSleep(1200);
+                timeSleep(1000);
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
     }                           
     
@@ -134,11 +132,10 @@ public class CulturaCarnaval {
     private static void timeSleep(int milliseconds) {
         try {
             Thread.sleep(milliseconds);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        } catch (InterruptedException e) {                          
         }
     }
-    
+     
     private static void pressKey(int keyCode) {
         robot.keyPress(keyCode);
         robot.keyRelease(keyCode);
@@ -167,7 +164,7 @@ public class CulturaCarnaval {
         for (int i = 0; i < 10; i++) {
                     
             pressKey(KeyEvent.VK_BACK_SPACE);
-        }
+        }   
         writeText(dataDoUsuario);
     }           
     
@@ -177,7 +174,7 @@ public class CulturaCarnaval {
     }
     
     private static void curso() {       
-        String curso = PASSISTA;
+        String curso = PERCUSSAO;
         if (curso.equals("Cultura Carnaval: Híbrido - Adericismo")) {
             for (int i = 0; i < 19; i++) {
                 pressKey(KeyEvent.VK_DOWN);
@@ -196,7 +193,7 @@ public class CulturaCarnaval {
             }   
         } 
     }
-
+    
     private static void adm() {                  
         String adm = "Lucas Luan Pereira Vieira";
         writeText(adm);
