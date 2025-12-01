@@ -159,7 +159,7 @@ public class RioElas {
     }   
                             
     private static void matricula() {
-        String dataDoUsuario = "24/11/2025";
+        String dataDoUsuario = "28/11/2025";
         for (int i = 0; i < 10; i++) {
                     
             pressKey(KeyEvent.VK_BACK_SPACE);
@@ -168,7 +168,7 @@ public class RioElas {
     }
 
     private static void evento() {
-        String evento = "7 - Rio+Elas";
+        String evento = "7 - Rio+Elas"; 
         writeText(evento);
     }
     
@@ -178,7 +178,7 @@ public class RioElas {
     }
     
     private static void curso() {   
-        String curso = EXTENSAO_DE_CILIOS;
+        String curso = TRANCISTA;
         if (curso.equals("Rio+Elas: Presencial - Extensao de Cilios")) {
             for (int i = 0; i < 56; i++ ) {
                 pressKey(KeyEvent.VK_DOWN); 
@@ -188,7 +188,7 @@ public class RioElas {
         }
     }
 
-    private static void coordenador() {
+    private static void coordenador() {                                                                 
         String coordenador = "Stefany";
         writeText(coordenador);
     }

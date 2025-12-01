@@ -6,29 +6,25 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 // import java.awt.datatransfer.DataFlavor; // Removido pois não é utilizado
 import java.awt.Toolkit;
-  
 
-public class CulturaCarnaval {
+public class Mandarim {
     
     private static Robot robot;
     
-    public static final String ADERICISMO = "Cultura Carnaval: Híbrido - Adericismo";
-    public static final String COSTURA = "Cultura Carnaval: Híbrido - Costura";
-    public static final String PASSISTA = "Cultura Carnaval: Híbrido - Passista";
-    public static final String PERCUSSAO = "Cultura Carnaval: Híbrido - Percussão";
+    public static final String MANDARIM = "TemporarioMandarim";
 
     static {
         try {
             robot = new Robot();
-        } catch (AWTException e) {                                         
-        }
+        } catch (AWTException e) {                      
+        }                       
     }
     // CHROME
     // F10
-    public static void executaCulturaCarnaval() {
+    public static void executaMandarim() {
         try {
             timeSleep(5000);
-            
+
             for (int i = 0; i < 61; i++) {
                 //=========================== BOTÃO ADICIONAR ==================================//
                 hotkey(new int[]{KeyEvent.VK_ALT, KeyEvent.VK_O, KeyEvent.VK_I});
@@ -54,14 +50,15 @@ public class CulturaCarnaval {
                 timeSleep(1000);
                 
                 //============================ BOTÃO PROXIMO - 1 ====================================//
-                for (int j = 0; j < 17; j++) {
-                    pressKey(KeyEvent.VK_TAB);
-                }
+                    // Clica na coordenada X=-1208, Y=718
+                    clickAt(-1208, 718);
                 timeSleep(2000);
                 
                 //================================ PARTE - 2 ========================================//
                 //================ TIPO DE CONTRATO ===================//  
-                tipoDeContrato();
+                pressKey(KeyEvent.VK_TAB);
+                timeSleep(1000);
+                tipoDeContrato();       
                 timeSleep(1000);
                 pressKey(KeyEvent.VK_TAB) ;
                 timeSleep(1000);
@@ -71,7 +68,7 @@ public class CulturaCarnaval {
                 matricula();
                 timeSleep(1000);
                 pressKey(KeyEvent.VK_TAB);
-                pressKey(KeyEvent.VK_TAB);                   
+                pressKey(KeyEvent.VK_TAB);                      
                 
                 //================ OPÇÃO - EVENTO =====================//
                 evento();
@@ -79,7 +76,7 @@ public class CulturaCarnaval {
                 pressKey(KeyEvent.VK_TAB);
                 
                 //================= OPÇÃO - CURSO =====================//
-                curso();
+                curso();        
                 timeSleep(1000);
                 pressKey(KeyEvent.VK_TAB);
                 timeSleep(1000);
@@ -126,16 +123,23 @@ public class CulturaCarnaval {
             }
         } catch (Exception e) {
         }
-    }                           
+    }
     
+        // Função auxiliar para clicar em uma coordenada absoluta da tela
+        private static void clickAt(int x, int y) {
+            robot.mouseMove(x, y);
+            robot.mousePress(java.awt.event.InputEvent.BUTTON1_DOWN_MASK);
+            robot.mouseRelease(java.awt.event.InputEvent.BUTTON1_DOWN_MASK);
+        }
+     
     // Métodos auxiliares para simular as funções do Python
     private static void timeSleep(int milliseconds) {
         try {
             Thread.sleep(milliseconds);
-        } catch (InterruptedException e) {                          
+        } catch (InterruptedException e) {
         }
     }
-     
+    
     private static void pressKey(int keyCode) {
         robot.keyPress(keyCode);
         robot.keyRelease(keyCode);
@@ -156,71 +160,58 @@ public class CulturaCarnaval {
                                                  
     private static void tipoDeContrato() {
         String tipoDeContrato = "Bolsa";
-        writeText(tipoDeContrato);                      
-    }
+        writeText(tipoDeContrato);
+    }   
                             
     private static void matricula() {
-        String dataDoUsuario = "29/11/2025";
+        String dataDoUsuario = "28/11/2025";
         for (int i = 0; i < 10; i++) {
                     
             pressKey(KeyEvent.VK_BACK_SPACE);
-        }   
+        }
         writeText(dataDoUsuario);
-    }               
-    
-    private static void evento() {      
-        String acao = "8 - Cultura Carnaval";
-        writeText(acao);
-    }                           
-    
-    private static void curso() {       
-        String curso = PERCUSSAO;   
-        if (curso.equals("Cultura Carnaval: Híbrido - Adericismo")) {
-            for (int i = 0; i < 19; i++) {  
-                pressKey(KeyEvent.VK_DOWN);
-            }
-        } else if (curso.equals("Cultura Carnaval: Híbrido - Costura")) {
-            for (int i = 0; i < 20; i++) {
-                pressKey(KeyEvent.VK_DOWN);                                                                 
-            }
-        } else if (curso.equals("Cultura Carnaval: Híbrido - Passista")) {
-            for (int i = 0; i < 21; i++) {
-                pressKey(KeyEvent.VK_DOWN);
-            }
-        } else if (curso.equals("Cultura Carnaval: Híbrido - Percussão")) {
-            for (int i = 0; i < 22; i++) {
-                pressKey(KeyEvent.VK_DOWN);
-            }   
-        } 
-    }                       
-
-
-    private static void adm() {                  
-        String adm = "Lucas Luan Pereira Vieira";
-        writeText(adm);
     }
 
-    private static void coordenador() {
+    private static void evento() {
+        String evento = "10 - Mandarim Para Guia Turístico"; 
+        if (evento.equals("10 - Mandarim Para Guia Turístico")) {
+            for (int i = 0; i < 1; i++) {
+                pressKey(KeyEvent.VK_DOWN);
+            }
+        }                   
+        writeText(evento);
+    }
+    
+    private static void adm() {                 
+        String adm = "Lucas Luan Pereira Vieira";
+        writeText(adm);                                 
+    }
+    
+    private static void curso() { 
+        String curso = MANDARIM;
+        writeText(curso);
+    }
+
+    private static void coordenador() {                                                                 
         String coordenador = "Marcus Vinicius Coppola Souto";
         writeText(coordenador);
     }
-    
-    private static void botaoProximo2() {                    
+     
+    private static void botaoProximo2() {                   
         for (int i = 0; i < 5; i++) {
             pressKey(KeyEvent.VK_TAB);
-        }
+        }       
     }
     
-    private static void polo() {
-        for (int         i = 0; i < 2; i++) {
-            pressKey(KeyEvent.VK_TAB);                                                                                          
+    private static void polo() {    
+        for (int i = 0; i < 2; i++)  {
+            pressKey(KeyEvent.VK_TAB);
         }
-        for (int v =0; v < 3; v++) {
-            pressKey(KeyEvent.VK_DOWN);
-        }                               
+        String polo = "RJ - Mandarim Para Guia Turisticos";
+        writeText(polo);
     }
-
-    private static void botaoGravar() {                                         
+    
+    private static void botaoGravar()  {
         for (int i = 0; i < 6; i++) {
             pressKey(KeyEvent.VK_TAB);
         }
@@ -239,6 +230,6 @@ public class CulturaCarnaval {
     
     // Executar apenas se chamado diretamente
     public static void main(String[] args) {
-        executaCulturaCarnaval();
+        executaMandarim();
     }
-}                                           
+}
