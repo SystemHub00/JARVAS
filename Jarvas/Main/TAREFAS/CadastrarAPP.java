@@ -34,22 +34,23 @@ public class CadastrarAPP {
             for (int i = 0; i < 3; i++) {
                 pressKey(KeyEvent.VK_RIGHT);
             }
-            timeSleep(2000);
+            timeSleep(1000);
             
             pressKey(KeyEvent.VK_ENTER);
-            timeSleep(2000);
+            timeSleep(1000);
             
             pressKey(KeyEvent.VK_ENTER);
-            timeSleep(2000);
-            
+            timeSleep(1000); 
+
             pressKey(KeyEvent.VK_RIGHT);
-            timeSleep(2000);
+            timeSleep(1000);
+
             
             pressKey(KeyEvent.VK_ENTER);
-            timeSleep(2000);
+            timeSleep(1000);
             
             pressKey(KeyEvent.VK_SPACE);
-            timeSleep(2000);
+            timeSleep(1000);
             
             hotkey(KeyEvent.VK_ALT, KeyEvent.VK_TAB);
             timeSleep(tempo);

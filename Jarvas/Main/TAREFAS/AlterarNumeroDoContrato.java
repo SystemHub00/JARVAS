@@ -23,7 +23,7 @@ public class AlterarNumeroDoContrato {
             int c = 0;
 
             for (int i = 0; i < 3000; i++) {
-                c++;
+                c++ ;
                 pressKey(KeyEvent.VK_DOWN);
                 timeSleep(1000);
                 
