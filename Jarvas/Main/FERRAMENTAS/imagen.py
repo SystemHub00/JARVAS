@@ -8,7 +8,7 @@ import easyocr
 def capturar_e_ler_tela():
     # Define a região (bbox): (left, top, right, bottom)
     largura_tela, altura_tela = ImageGrab.grab().size
-    bbox = (0, 0, int(largura_tela * 0.4), int(altura_tela * 0.8))  # Ajuste a altura se quiser menos
+    bbox = (0, 0, int(largura_tela * 0.8), int(altura_tela * 0.8))  # Ajuste a altura se quiser menos
     screenshot = ImageGrab.grab(bbox=bbox)
     img_np = np.array(screenshot)
     reader = easyocr.Reader(['pt', 'en'])

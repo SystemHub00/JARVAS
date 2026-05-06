@@ -108,7 +108,7 @@ for programa in range(100):
         pyautogui.click(x=892, y=843)'''
         
     time.sleep(2)
-    pyautogui.press('tab')
+    pyautogui.press('tab')  
     time.sleep(1)
 
     # TIPO DE CONTRATO
@@ -146,7 +146,7 @@ for programa in range(100):
     pyautogui.press('tab')  
 
     # CURSO
-    '''for i in range(67):
+    '''for i in range(67):Bolsa 
         pyautogui.press('down')
     pyautogui.press('tab')
     '''
@@ -166,7 +166,7 @@ for programa in range(100):
     pyautogui.hotkey('alt', 'tab')
     
     # CURSO ESCMarcus Vinicius Coppola SoutoOLHIDO   
- 
+  
     if curso_copiado == "TRANCISTA":
         pyautogui.write("Rio+Elas: Presencial - Trancista")
     elif curso_copiado == "DESIGNER DE SOBRANCELHAS" :
@@ -219,3 +219,4 @@ for programa in range(100):
     time.sleep(1)       
     pyautogui.press('down')
     pyautogui.press('right')
+        

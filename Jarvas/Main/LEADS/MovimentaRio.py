@@ -18,9 +18,7 @@ def capturar_e_ler_tela():
     bbox = (0, 0, int(largura_tela * 0.4), int(altura_tela * 0.8))  # Ajuste a altura se quiser menos
     screenshot = ImageGrab.grab(bbox=bbox)
     img_np = np.array(screenshot)
-    resultado = reader.readtext(img_np, detail=0)
-    texto = '\n'.join(resultado)
-    return texto
+
 
 for programa in range(100):
     # COPIA CPF   
@@ -58,12 +56,12 @@ for programa in range(100):
     sexo = pyperclip.paste()
     pyautogui.hotkey('alt', 'tab')
     time.sleep(1)
-    pyautogui.click(x=298, y=483)
+    pyautogui.click(x=287, y=667)
     time.sleep(1)
     pyautogui.write(sexo)
     time.sleep(1)
     # BUTÃO CEP
-    pyautogui.click(x=50, y=607)
+    pyautogui.click(x=47, y=781)
     time.sleep(1)
     pyautogui.hotkey('alt', 'tab')
     time.sleep(1)
@@ -75,13 +73,14 @@ for programa in range(100):
     cep = pyperclip.paste()
     for l in range(4):
         pyautogui.press('left')
+        
     time.sleep(1)
     pyautogui.hotkey('alt', 'tab')
     time.sleep(1)
     pyautogui.write(cep)
     time.sleep(1)
     # BOTÃO PROXIMO - 1
-    pyautogui.click(x=889, y=842)
+    pyautogui.click(x=887, y=1019)
     time.sleep(1)
     '''if "Digito Verificador do CPF ou do CNPJ não confere" in capturar_e_ler_tela():
         time.sleep(1)
@@ -200,7 +199,7 @@ for programa in range(100):
  
     if curso_copiado == "AUXILIAR ADMINISTRATIVO":
         pyautogui.write("Movimenta.Rio: Hibrido - Auxiliar Administrativo v2")
-    elif curso_copiado == "AGENTE DEFESAAL" :
+    elif curso_copiado == "AGENTE DEFESA AMBIENTAL" :
         pyautogui.write("Movimenta.Rio: Hibrido - Agente de Defesa Ambiental v2")
     elif curso_copiado == "MARKETING DIGITAL":
         pyautogui.write("Movimenta.Rio: Hibrido - Marketing Digital v2")        
@@ -298,3 +297,5 @@ for programa in range(100):
     time.sleep(1)       
     pyautogui.press('down')
     pyautogui.press('right')
+    time.sleep(1)
+    
