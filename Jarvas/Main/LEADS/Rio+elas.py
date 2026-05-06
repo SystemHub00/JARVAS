@@ -58,12 +58,12 @@ for programa in range(100):
     sexo = pyperclip.paste()
     pyautogui.hotkey('alt', 'tab')
     time.sleep(1)
-    pyautogui.click(x=298, y=483)
+    pyautogui.click(x=287, y=667)
     time.sleep(1)
     pyautogui.write(sexo)
     time.sleep(1)
     # BUTÃO CEP
-    pyautogui.click(x=50, y=607)
+    pyautogui.click(x=47, y=781)
     time.sleep(1)
     pyautogui.hotkey('alt', 'tab')
     time.sleep(1)
@@ -81,7 +81,7 @@ for programa in range(100):
     pyautogui.write(cep)
     time.sleep(1)
     # BOTÃO PROXIMO - 1
-    pyautogui.click(x=889, y=842)
+    pyautogui.click(x=887, y=1019)
     time.sleep(1)
     '''if "Digito Verificador do CPF ou do CNPJ não confere" in capturar_e_ler_tela():
         time.sleep(1)
@@ -166,7 +166,7 @@ for programa in range(100):
     pyautogui.hotkey('alt', 'tab')
     
     # CURSO ESCMarcus Vinicius Coppola SoutoOLHIDO   
-  
+    
     if curso_copiado == "TRANCISTA":
         pyautogui.write("Rio+Elas: Presencial - Trancista")
     elif curso_copiado == "DESIGNER DE SOBRANCELHAS" :

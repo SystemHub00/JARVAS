@@ -95,17 +95,14 @@ for programa in range(100):
         time.sleep(1)
         pyautogui.press('Enter')
         time.sleep(1)
-            pyautogui.hotkey('', 't         
-            
-            pyautogui.press('tab')
-            time.sleep(3)
+        pyautogui.press('tab')
+        time.sleep(3)
         pyautogui.hotkey('Ctrl', 'v')
-        time.sleep(1)057.449.267-47 Marcus Vinicius Coppola Souto
         time.sleep(1)
         pyautogui.write("M")
         time.sleep(1)
         pyautogui.click(x=892, y=843)'''
-        
+
     time.sleep(2)
     pyautogui.press('tab')
     time.sleep(1)
@@ -201,7 +198,7 @@ for programa in range(100):
         pyautogui.write("Movimenta.Rio: Hibrido - Auxiliar Administrativo v2")
     elif curso_copiado == "AGENTE DEFESA AMBIENTAL" :
         pyautogui.write("Movimenta.Rio: Hibrido - Agente de Defesa Ambiental v2")
-    elif curso_copiado == "MARKETING DIGITAL":
+    elif curso_copiado == "MARKETING DIGITAL" or curso_copiado == "MARKETING":
         pyautogui.write("Movimenta.Rio: Hibrido - Marketing Digital v2")        
     elif curso_copiado == "GARÇOM":
         pyautogui.write("Movimenta.Rio: Hibrido - Garcom (Boteco) v2")
@@ -266,7 +263,6 @@ for programa in range(100):
     time.sleep(1)
     pyautogui.press('tab')
 
-    
     # COORDENADOR
     pyautogui.write("Marcus Vinicius Coppola Souto")
     time.sleep(1)
