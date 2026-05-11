@@ -56,12 +56,12 @@ for programa in range(100):
     sexo = pyperclip.paste()
     pyautogui.hotkey('alt', 'tab')
     time.sleep(1)
-    pyautogui.click(x=287, y=667)
+    pyautogui.click(x=285, y=646)
     time.sleep(1)
     pyautogui.write(sexo)
     time.sleep(1)
     # BUTÃO CEP
-    pyautogui.click(x=47, y=781)
+    pyautogui.click(x=47, y=758)
     time.sleep(1)
     pyautogui.hotkey('alt', 'tab')
     time.sleep(1)
@@ -73,52 +73,44 @@ for programa in range(100):
     cep = pyperclip.paste()
     for l in range(4):
         pyautogui.press('left')
-        
     time.sleep(1)
     pyautogui.hotkey('alt', 'tab')
     time.sleep(1)
     pyautogui.write(cep)
     time.sleep(1)
     # BOTÃO PROXIMO - 1
-    pyautogui.click(x=887, y=1019)
-    time.sleep(1)
-    '''if "Digito Verificador do CPF ou do CNPJ não confere" in capturar_e_ler_tela():
-        time.sleep(1)
-        pyautogui.hotkey('alt', 'tab')
-        time.sleep(1)
-        pyautogui.press('down')
-        time.sleep(1)
-        pyautogui.hotkey('Ctrl', 'c')
-        pyperclip.paste() 
-        time.sleep(1)
-        pyautogui.hotkey('alt', 'tab')
-        time.sleep(1)
-        pyautogui.press('Enter')
-        time.sleep(1)
-        pyautogui.press('tab')
-        time.sleep(3)
-        pyautogui.hotkey('Ctrl', 'v')
-        time.sleep(1)
-        pyautogui.write("M")
-        time.sleep(1)
-        pyautogui.click(x=892, y=843)'''
-
+    pyautogui.click(x=887, y=995)
     time.sleep(2)
     pyautogui.press('tab')
     time.sleep(1)
 
     # TIPO DE CONTRATO
-    pyautogui.write("Bolsa")
+    pyautogui.hotkey('alt', 'tab')
+    time.sleep(1)
+    for i in range(9):
+        pyautogui.press('right')
+    time.sleep(1)
+    pyautogui.hotkey('ctrl', 'c')
+    time.sleep(1)
+    turma = pyperclip.paste()
+    time.sleep(1)
+    for i in range(9):
+        pyautogui.press('left')
+    time.sleep(1)
+    pyautogui.hotkey('alt', 'tab')      
+    time.sleep(1)
+    pyautogui.write('SEM TURMA')
+    time.sleep(1)
     pyautogui.press('tab')
     
-    # DATA DA MATRÍCULAM
+    # DATA DA MATRÍCULAM    
     # CHROME
     pyautogui.hotkey('alt', 'tab')
     time.sleep(1)
     for i in range(4):
         pyautogui.press('left')
     time.sleep(1)
-    pyautogui.hotkey('ctrl', 'c')
+    pyautogui.hotkey('ctrl', 'c' )
     time.sleep(1)
     data_de_inscricao = pyperclip.paste()
     time.sleep(1)
@@ -196,7 +188,7 @@ for programa in range(100):
  
     if curso_copiado == "AUXILIAR ADMINISTRATIVO":
         pyautogui.write("Movimenta.Rio: Hibrido - Auxiliar Administrativo v2")
-    elif curso_copiado == "AGENTE DEFESA AMBIENTAL" :
+    elif curso_copiado == "AGENTE DE DEFESA AMBIENTAL" :
         pyautogui.write("Movimenta.Rio: Hibrido - Agente de Defesa Ambiental v2")
     elif curso_copiado == "MARKETING DIGITAL" or curso_copiado == "MARKETING":
         pyautogui.write("Movimenta.Rio: Hibrido - Marketing Digital v2")        
@@ -207,10 +199,10 @@ for programa in range(100):
     elif curso_copiado == "CUMIN":
         pyautogui.write("Movimenta.Rio: Hibrido - Cumim (Boteco) v2")
     elif curso_copiado == "RECEPCIONISTA":
-        pyautogui.write("Movimenta.Rio: Hibrido - Recepcionista v2")
+        pyautogui.write("Movimenta.Rio: Hibrido - Recepcionista v                   2")
     elif curso_copiado == "SOCIAL MEDIA":
         pyautogui.write("Movimenta.Rio: Hibrido - Social Media v2")
-    elif curso_copiado == "ASSISTENTE DE LOGÍSTICA":
+    elif curso_copiado == "ASSISTENTE DE LOGISTICA":
         pyautogui.write("Movimenta.Rio: Hibrido - Assistente de Logistica v2")
     elif curso_copiado == "AUXILIAR DE COZINHA":
         pyautogui.write("Movimenta.Rio: Hibrido - Auxiliar de Cozinha v2")
@@ -294,4 +286,3 @@ for programa in range(100):
     pyautogui.press('down')
     pyautogui.press('right')
     time.sleep(1)
-    
