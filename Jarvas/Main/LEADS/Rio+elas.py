@@ -46,7 +46,7 @@ for programa in range(100):
     time.sleep(1)
     pyautogui.press('enter')    
     time.sleep(1)
-    # BUTÃO SEXO
+    # BOTÃO SEXO
     pyautogui.hotkey('alt', 'tab')
     time.sleep(1)
     pyautogui.press('right')
@@ -62,7 +62,7 @@ for programa in range(100):
     time.sleep(1)
     pyautogui.write(sexo)
     time.sleep(1)
-    # BUTÃO CEP
+    # BOTÃO CEP
     pyautogui.click(x=47, y=781)
     time.sleep(1)
     pyautogui.hotkey('alt', 'tab')
@@ -154,7 +154,7 @@ for programa in range(100):
     pyautogui.hotkey('alt', 'tab')
     time.sleep(1)
     for _ in range(2):
-        pyautogui.press('right')
+        pyautogui.press('right')        
     time.sleep(1)
     pyautogui.hotkey('ctrl', 'c')
     time.sleep(1)
@@ -171,7 +171,7 @@ for programa in range(100):
         pyautogui.write("Rio+Elas: Presencial - Trancista")
     elif curso_copiado == "DESIGNER DE SOBRANCELHAS" :
         pyautogui.write("Rio+Elas: Presencial - Designer de Sobrancelhas")
-    elif curso_copiado == "NAILS DESIGNER":
+    elif curso_copiado == "NAILS DESIGNER" or curso_copiado == "DESIGNER DE UNHAS":
         pyautogui.write("Rio+Elas: Presencial - Designer de Unhas")   
     elif curso_copiado == "EXTENSÃO DE CÍLIOS":
         pyautogui.write("Rio+Elas: Presencial - Extensao de Cilios")       
@@ -183,13 +183,12 @@ for programa in range(100):
 
     # ADMINISTRADO
     pyautogui.write("Lucas Luan Pereira Vieira")                
-    time.sleep(1)   
-    
+    time.sleep(1)      
     pyautogui.press('tab')
 
-    
+
     # COORDENADOR
-    pyautogui.write("Marcus Vinicius Coppola Souto")
+    pyautogui.write("Stefanie Lucena Pereira de Melo")
     time.sleep(1)
 
     # BOTÃO PROXIMO - 2
@@ -197,12 +196,13 @@ for programa in range(100):
         pyautogui.press('tab')      
     time.sleep(1)
   
-    # PARTE - 3
+    # PARTE - 3         RJ - Ri
+    #   o+Elas
     pyautogui.press('space')
     for _ in range(2):
         pyautogui.press('tab')
     pyautogui.write("RJ - Rio+Elas")
-    time.sleep(1)
+    time.sleep(1)   
 
     # BOTÃO GRAVAR
     for _ in range(6):

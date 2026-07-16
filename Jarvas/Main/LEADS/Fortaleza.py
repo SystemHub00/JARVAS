@@ -31,16 +31,16 @@ for programa in range(100):
     pyautogui.press('insert')
     time.sleep(1)
     pyautogui.press('tab')
-    time.sleep(3)
+    time.sleep(5)
     pyautogui.press('Enter')
     time.sleep(3)
-    pyautogui.hotkey('Ctrl', 'v')
+    pyautogui.hotkey('ctrl', 'v')
     time.sleep(1)   
     
     # EXTRA
     pyautogui.press('enter')
     time.sleep(1)
-    pyautogui.hotkey('Ctrl', 'v')
+    pyautogui.hotkey('Ctrl', 'c')
     time.sleep(1)
     pyautogui.press('enter')    
     time.sleep(1)
@@ -58,12 +58,12 @@ for programa in range(100):
     sexo = pyperclip.paste()
     pyautogui.hotkey('alt', 'tab')
     time.sleep(1)
-    pyautogui.click(x=285, y=646)
+    pyautogui.click(x=284, y=450)
     time.sleep(1)
     pyautogui.write(sexo)
     time.sleep(1)
-    # BOTÃO CEP     
-    pyautogui.click(x=47, y=758)
+    # BOTÃO CEP         
+    pyautogui.click(x=45, y=567)
     time.sleep(1)
     pyautogui.hotkey('alt', 'tab')
     time.sleep(1)
@@ -79,10 +79,10 @@ for programa in range(100):
     time.sleep(1)
     pyautogui.hotkey('alt', 'tab')
     time.sleep(1)
-    pyautogui.write('21042-700')
+    pyautogui.write(cep)
     time.sleep(1)
     # BOTÃO PROXIMO - 1
-    pyautogui.click(x=887, y=995)
+    pyautogui.click(x=890, y=802)
     time.sleep(2)
     pyautogui.press('tab')
     time.sleep(1)
@@ -102,7 +102,7 @@ for programa in range(100):
     time.sleep(1)
     pyautogui.hotkey('alt', 'tab')      
     time.sleep(1)
-    pyautogui.write("Bolsa")
+    pyautogui.write(turma)
     time.sleep(1)
     pyautogui.press('tab')
     
@@ -122,6 +122,8 @@ for programa in range(100):
 
     # F10
     pyautogui.hotkey('alt', 'tab')              
+    time.sleep(1)
+    pyautogui.click(x=205, y=405)
     time.sleep(1)
     for i in range(8):
         pyautogui.press('backspace')
@@ -186,12 +188,12 @@ for programa in range(100):
     Operador de Sistema de Compostagem e Resíduos Orgânicos
     '''
     # CURSO ESCOLHIDO
- 
+
     if curso_copiado == "AUXILIAR ADMINISTRATIVO":
         pyautogui.write("Movimenta: Hibrido - Auxiliar Administrativo v2")
     elif curso_copiado == "AGENTE DE DEFESA AMBIENTAL" :
-        pyautogui.write("Movimenta: Hibrido - Agente de Defesa Ambiental v2"    )
-    elif curso_copiado == "MARKETING DIGITAL" or curso_copiado == "MARKETING":
+        pyautogui.write("Movimenta: Hibrido - Agente de Defesa Ambiental v2")
+    elif curso_copiado == "MARKETING DIGITAL" or curso_copiado == " MARKETING DIGITAL":
         pyautogui.write("Movimenta: Hibrido - Marketing Digital v2")        
     elif curso_copiado == "GARÇOM":
         pyautogui.write("Movimenta: Hibrido - Garcom (Boteco) v2")
@@ -201,7 +203,7 @@ for programa in range(100):
         pyautogui.write("Movimenta: Hibrido - Cumim (Boteco) v2")
     elif curso_copiado == "RECEPCIONISTA":
         pyautogui.write("Movimenta: Hibrido - Recepcionista v2")
-    elif curso_copiado == "SOCIAL MEDIA":
+    elif curso_copiado == "SOCIAL MEDIA" or curso_copiado == " SOCIAL MEDIA":
         pyautogui.write("Movimenta: Hibrido - Social Media v2")
     elif curso_copiado == "ASSISTENTE DE LOGÍSTICA":
         pyautogui.write("Movimenta: Hibrido - Assistente de Logistica v2")
@@ -247,12 +249,18 @@ for programa in range(100):
         pyautogui.write("Movimenta: Hibrido - Operador de Sistema de Compostagem v2")
     elif curso_copiado == "📑 PREPARATÓRIO ENCCEJA 2026":
         pyautogui.write("1 - Preparatorio Encceja: Presencial - Encceja 2025")
-    elif curso_copiado == "DESIGNER DE SOBRANCELHAS":
+    elif curso_copiado == "DESIGNER DE SOBRANCELHAS" or curso_copiado == " DESIGNER DE SOBRANCELHAS":
         pyautogui.write("Movimenta: Hibrido - Designer De Sobrancelhas v2")
-    elif curso_copiado == "MANICURE":
+    elif curso_copiado == "MANICURE" or curso_copiado == " MANICURE":
         pyautogui.write("Movimenta: Hibrido - Manicure v2")
     elif curso_copiado == "TRANCISTA":
         pyautogui.write("Movimenta: Hibrido - Trancista v2")
+    elif curso_copiado == "PEDICURE" or curso_copiado == " PEDICURE":
+        pyautogui.write("Movimenta: Hibrido - Pedicure v2")
+    elif curso_copiado == "DESIGNER DE UNHAS" or curso_copiado == " DESIGNER DE UNHAS":
+        pyautogui.write("Movimenta: Hibrido - Designer De Unhas v2")    
+    elif curso_copiado == " EXTENSÃO DE CÍLIOS" or curso_copiado == " EXTENSÃO DE CÍLIOS":
+        pyautogui.write("Movimenta: Hibrido - Extensao de Cilios V2")
     time.sleep(1)           
     pyautogui.press('tab')
     time.sleep(1)   
@@ -277,14 +285,20 @@ for programa in range(100):
     pyautogui.press('space')
     for _ in range(2):
         pyautogui.press('tab')
-    pyautogui.write("RJ - Movimenta.Rio")
+    pyautogui.write("CE - Fortaleza")
     time.sleep(1)
 
     # BOTÃO GRAVAR
-    for _ in range(6):
+    for _ in range(15):
         pyautogui.press('tab')
     pyautogui.press('enter')
     time.sleep(1)
+    pyautogui.press('tab')
+    time.sleep(1)
+    for _ in range(2):
+        pyautogui.press('enter')
+    time.sleep(1)
+    pyautogui.click(x=946, y=805)
 
     # EXCEL
     pyautogui.hotkey('alt', 'tab')
@@ -295,4 +309,3 @@ for programa in range(100):
     pyautogui.press('down')
     pyautogui.press('right')
     time.sleep(1)
-

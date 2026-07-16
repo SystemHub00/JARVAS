@@ -19,51 +19,51 @@ def capturar_e_ler_tela():
 
 def executar_cadastrar_app():
 
-    for _ in range(105):
+    for _ in range(305):
         pyautogui.press('apps')
         time.sleep(2)
         # Tecla de contexto (menu do botão direito)
         if "Parcela" in capturar_e_ler_tela():
             pyautogui.press('esc')
-            time.sleep(3)
+            time.sleep(1)
             pyautogui.press('down')
-            time.sleep(3)
+            time.sleep(1)
             continue
-        time.sleep(5)
+        time.sleep(2)
         
         for _ in range(3):
             pyautogui.press('down')
-        time.sleep(3)
+        time.sleep(1)
         for _ in range(3):
             pyautogui.press('right')
-        time.sleep(3)           
+        time.sleep(1)           
         pyautogui.press('enter')
-        time.sleep(3)
+        time.sleep(1)
         if "Inclusão de pessoas no APP IFP Brasil:" in capturar_e_ler_tela():
             pyautogui.press('enter')
-            time.sleep(3)
+            time.sleep(1)
             pyautogui.press('down')
-            time.sleep(3)
+            time.sleep(1)
             continue
-        time.sleep(5)
+        time.sleep(2)
         pyautogui.press('enter')
-        time.sleep(3)
+        time.sleep(2)
         pyautogui.press('right')
-        time.sleep(3)
+        time.sleep(2)
         pyautogui.press('enter')
-        time.sleep(3)
+        time.sleep(2)
         pyautogui.press('enter')
-        time.sleep(3)
+        time.sleep(2)
         pyautogui.hotkey('alt', 'tab')
-        time.sleep(3)
+        time.sleep(2)
         pyautogui.hotkey('ctrl', 'v')
-        time.sleep(3) 
+        time.sleep(2) 
         pyautogui.press('down')
-        time.sleep(3)
+        time.sleep(2)
         pyautogui.hotkey('alt', 'tab')
-        time.sleep(3)
+        time.sleep(2)
         pyautogui.press('down')
-        time.sleep(3)         
+        time.sleep(2)         
     time.sleep(5)
 
 if __name__ == "__main__":
